@@ -2,19 +2,20 @@
 area:
   - 'bug'
   - 'important'
+
 major:
 - '/\/label major/'
 minor:
-- '(label minor)'
-- '(\[x\] minor)'
+- '/\/label minor/'
 patch:
-- '(label patch)'
-- '(\[x\] patch)'
+- '/\/label patch/'
+
 do-not-merge:
-- '//hold'
+- '/\/hold/'
+- '/\/do-not-merge/'
 feature:
-- '(label feature)'
+- '/\/label feature/'
 bug:
-- '(label bug)'
-maintence:
-- '(label maintence)'
+- '/\/label bug/'
+maintenance:
+- '/\/label maintenance/'
