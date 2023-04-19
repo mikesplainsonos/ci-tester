@@ -2,6 +2,13 @@ name: "CI Actions"
 on:
   issue_comment:
     types: [created]
+  pull_request:
+    types:
+      - opened
+      - edited
+      - labeled
+      - unlabeled
+      - synchronize
 
 jobs:
   execute:
@@ -26,3 +33,10 @@ jobs:
             /cc 
             /uncc'
           github-token: "${{ secrets.GITHUB_TOKEN }}"
+  
+      - uses: wow-actions/wip@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Match with PR labels. Comma separated and case insensitive labels.
+          labels: 'do-not-merge', 'work in progress', 'wip', 'rfc', '🚧', 'hold'
+          keywords: 'do-not-merge', 'work in progress', 'wip', 'rfc', '🚧', 'hold
