@@ -9,10 +9,9 @@ minor:
 - '/\/label minor/'
 patch:
 - '/\/label patch/'
-
 do-not-merge:
-- '/\/hold/'
-- '/\/do-not-merge/'
+- '/\/label do-not-merge/'
+
 feature:
 - '/\/label feature/'
 bug:
