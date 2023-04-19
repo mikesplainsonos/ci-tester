@@ -11,7 +11,8 @@ on:
       - synchronize
 
 jobs:
-  execute:
+  prow:
+    if: ${{ !github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     steps:
       - uses: jpmcb/prow-github-actions@main
@@ -33,6 +34,10 @@ jobs:
             /cc
             /uncc"
           github-token: "${{ secrets.GITHUB_TOKEN }}"
+
+  wip:
+    runs-on: ubuntu-latest
+    steps:
       - uses: wow-actions/wip@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
