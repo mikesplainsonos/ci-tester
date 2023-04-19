@@ -19,8 +19,3 @@ bug:
 - '(label bug)'
 maintence:
 - '(label maintence)'
-
-
-# File globs for PR labeler
-tests:
-  - 'tester/**'
