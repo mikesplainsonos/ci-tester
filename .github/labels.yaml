@@ -3,7 +3,7 @@ area:
   - 'bug'
   - 'important'
 major:
-- '/.*\/label major.*/'
+- '/\/label major/'
 minor:
 - '(label minor)'
 - '(\[x\] minor)'
