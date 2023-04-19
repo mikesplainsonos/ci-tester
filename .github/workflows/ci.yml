@@ -14,28 +14,25 @@ jobs:
   execute:
     runs-on: ubuntu-latest
     steps:
-      # - uses: jpmcb/prow-github-actions@main
-      #   with:
-      #     prow-commands: '/assign 
-      #       /unassign 
-      #       /approve 
-      #       /retitle 
-      #       /area 
-      #       /kind 
-      #       /priority 
-      #       /remove 
-      #       /lgtm 
-      #       /close 
-      #       /reopen 
-      #       /lock 
-      #       /milestone 
-      #       /hold 
-      #       /cc 
-      #       /uncc'
-      #     github-token: "${{ secrets.GITHUB_TOKEN }}"
+      - uses: jpmcb/prow-github-actions@main
+        with:
+          prow-commands: "/assign
+            /unassign
+            /approve
+            /retitle
+            /area
+            /kind
+            /priority
+            /remove
+            /lgtm
+            /close
+            /reopen
+            /lock
+            /milestone
+            /hold
+            /cc
+            /uncc"
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
       - uses: wow-actions/wip@main
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # Match with PR labels. Comma separated and case insensitive labels.
-          labels: 'do-not-merge', 'work in progress', 'wip', 'rfc', '🚧', 'hold'
-          keywords: 'do-not-merge', 'work in progress', 'wip', 'rfc', '🚧', 'hold
