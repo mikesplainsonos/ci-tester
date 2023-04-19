@@ -14,25 +14,25 @@ jobs:
   execute:
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmcb/prow-github-actions@main
-        with:
-          prow-commands: '/assign 
-            /unassign 
-            /approve 
-            /retitle 
-            /area 
-            /kind 
-            /priority 
-            /remove 
-            /lgtm 
-            /close 
-            /reopen 
-            /lock 
-            /milestone 
-            /hold 
-            /cc 
-            /uncc'
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
+      # - uses: jpmcb/prow-github-actions@main
+      #   with:
+      #     prow-commands: '/assign 
+      #       /unassign 
+      #       /approve 
+      #       /retitle 
+      #       /area 
+      #       /kind 
+      #       /priority 
+      #       /remove 
+      #       /lgtm 
+      #       /close 
+      #       /reopen 
+      #       /lock 
+      #       /milestone 
+      #       /hold 
+      #       /cc 
+      #       /uncc'
+      #     github-token: "${{ secrets.GITHUB_TOKEN }}"
       - uses: wow-actions/wip@main
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
