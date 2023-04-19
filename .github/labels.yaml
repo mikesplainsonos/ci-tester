@@ -4,8 +4,6 @@ area:
   - 'important'
 major:
 - '/.*\/label major.*/'
-- '.*(label major)'
-- '(\[x\] major)'
 minor:
 - '(label minor)'
 - '(\[x\] minor)'
