@@ -11,7 +11,7 @@ on:
       - synchronize
 
 jobs:
-  ci:
+  CI:
     runs-on: ubuntu-latest
     steps:
       - uses: github/issue-labeler@v3.1 #May not be the latest version
@@ -21,7 +21,10 @@ jobs:
           enable-versioned-regex: 0
           include-title: 1
           sync-labels: 1
-
+  WIP:
+    runs-on: ubuntu-latest
+    needs: CI
+    steps:
       - uses: wow-actions/wip@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
