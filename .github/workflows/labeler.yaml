@@ -1,7 +1,9 @@
 name: "Pull Request Labeler"
 on:
-- pull_request_target
-
+  issues:
+    types: [opened, edited]
+  pull_request:
+    types: [opened, edited]
 jobs:
   triage:
     runs-on: ubuntu-latest
@@ -9,7 +11,14 @@ jobs:
       contents: read
       pull-requests: write
     steps:
-    - uses: actions/labeler@v4
-      with:
-        repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        configuration-path: .github/labels.yaml
+      - uses: actions/labeler@v4
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          configuration-path: .github/labels.yaml
+      - uses: github/issue-labeler@v3.1 #May not be the latest version
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          configuration-path: .github/labels.yaml
+          not-before: 2020-01-15T02:54:32Z
+          enable-versioned-regex: 0
+          include-title: 1

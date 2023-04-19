@@ -2,6 +2,24 @@
 area:
   - 'bug'
   - 'important'
+major:
+- '(label major)'
+- '(\[x\] major)'
+minor:
+- '(label minor)'
+- '(\[x\] minor)'
+patch:
+- '(label patch)'
+- '(\[x\] patch)'
+do-not-merge:
+- '//hold'
+feature:
+- '(label feature)'
+bug:
+- '(label bug)'
+maintence:
+- '(label maintence)'
+
 
 # File globs for PR labeler
 tests:
