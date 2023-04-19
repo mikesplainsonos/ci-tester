@@ -38,4 +38,4 @@ jobs:
       - uses: wow-actions/wip@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          labels: "hold"
+          labels: "do-not-merge"
