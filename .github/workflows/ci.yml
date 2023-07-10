@@ -1,7 +1,7 @@
 name: "CI Actions"
 on:
-  issue_comment:
-    types: [created]
+  issues:
+    types: [opened, edited]
   pull_request:
     types:
       - opened
@@ -11,31 +11,21 @@ on:
       - synchronize
 
 jobs:
-  ci:
+  CI:
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmcb/prow-github-actions@main
-        if: github.event.issue.pull_request && contains(github.event.comment.body, '/')
+      - uses: github/issue-labeler@v3.1 #May not be the latest version
         with:
-          prow-commands: "/assign
-            /unassign
-            /approve
-            /retitle
-            /area
-            /kind
-            /priority
-            /remove
-            /lgtm
-            /close
-            /reopen
-            /lock
-            /milestone
-            /hold
-            /cc
-            /uncc"
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
-
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          configuration-path: .github/labels.yaml
+          enable-versioned-regex: 0
+          include-title: 1
+          sync-labels: 1
+  WIP:
+    runs-on: ubuntu-latest
+    needs: CI
+    steps:
       - uses: wow-actions/wip@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          labels: "hold"
+          labels: "do-not-merge"
